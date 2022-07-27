@@ -1,301 +1,319 @@
-<style>
-ul li{
-	list-style: none;
-}
-</style>
-
 <?php
+
+
+// $array1 = array(array(77, 87), array(23, 45));
+// $array2 = array("w3resource", "com");
+
+// function array_merge_index($x, $y){
+// 	$temp = array();
+// 	$temp[] = $x;
+
+// 	if(is_scalar($y)){
+// 		$temp = $y;
+// 	}else{
+// 		foreach($y as $key => $z){
+// 			$temp[] = $z;
+// 		}
+// 	}
+
+// 	return $temp;
+// }
+// echo "<pre>";
+// print_r(array_map('array_merge_index', $array2, $array1));
+// echo "</pre>";
+
+// OOP CRUD Start
 // require_once("./includes/Db.php");
 // use exam\includes\Db;
 
-class Db {
-	private $servername;
-	private $username;
-	private $password;
-	private $dbname;
+// class Db {
+// 	private $servername;
+// 	private $username;
+// 	private $password;
+// 	private $dbname;
 
-	protected function connect()
-	{
-		$this->servername = "localhost";
-		$this->username = "root";
-		$this->password = "";
-		$this->dbname = "test123";
+// 	protected function connect()
+// 	{
+// 		$this->servername = "localhost";
+// 		$this->username = "root";
+// 		$this->password = "";
+// 		$this->dbname = "test123";
 
-		$conn = new mysqli($this->servername, $this->username, $this->password, $this->dbname);
-		return $conn;
-	}
+// 		$conn = new mysqli($this->servername, $this->username, $this->password, $this->dbname);
+// 		return $conn;
+// 	}
 
-}
+// }
 
-class Users extends Db {
-	public function getAllUsers(){
-		$sql = 'Select * from user';
-		$result = $this->connect()->query($sql);
-		$numrows = $result->num_rows;
-		if($numrows > 0){
-			while($row = $result->fetch_assoc()){
-				$data[] = $row;
-			}
-			return $data;
-		}
-	}
-	public function getSingleUser($id){
-		$sql = 'Select * from user where id = ' . $id . '';
-		$result = $this->connect()->query($sql);
-		$numrows = $result->num_rows;
-		if($numrows > 0)
-		{
-			$data = $result->fetch_assoc();
-		}else{
-			$data = "Item not found.";
-		}
-		return $data;
-	}
-	public function store(){
-		$fname = $_POST['fname'];
-		$lname = $_POST['lname'];
-		$address = $_POST['address'];
+// class Users extends Db {
+// 	public function getAllUsers(){
+// 		$sql = 'Select * from user';
+// 		$result = $this->connect()->query($sql);
+// 		$numrows = $result->num_rows;
+// 		if($numrows > 0){
+// 			while($row = $result->fetch_assoc()){
+// 				$data[] = $row;
+// 			}
+// 			return $data;
+// 		}
+// 	}
+// 	public function getSingleUser($id){
+// 		$sql = 'Select * from user where id = ' . $id . '';
+// 		$result = $this->connect()->query($sql);
+// 		$numrows = $result->num_rows;
+// 		if($numrows > 0)
+// 		{
+// 			$data = $result->fetch_assoc();
+// 		}else{
+// 			$data = "Item not found.";
+// 		}
+// 		return $data;
+// 	}
+// 	public function store(){
+// 		$fname = $_POST['fname'];
+// 		$lname = $_POST['lname'];
+// 		$address = $_POST['address'];
 
-		$sql = 'INSERT INTO user (fname, lname, address)';
-		$sql .= 'VALUES ("'.$fname.'", "'.$lname.'", "'.$address.'")';
-		$result = $this->connect()->query($sql);
+// 		$sql = 'INSERT INTO user (fname, lname, address)';
+// 		$sql .= 'VALUES ("'.$fname.'", "'.$lname.'", "'.$address.'")';
+// 		$result = $this->connect()->query($sql);
 
-		if($result){
-			echo '<script>window.location.href="index.php"</script>';
-		}	
-	}
+// 		if($result){
+// 			echo '<script>window.location.href="index.php"</script>';
+// 		}	
+// 	}
 
-	public function destroy($id){
-		if($id){
-			$sql = 'DELETE FROM user ';
-			$sql .= ' WHERE id = '.$id;
-			$result = $this->connect()->query($sql);
-			if($result){
-				echo '<script>window.location.href="index.php"</script>';
-			}
-		}
-	}
-	public function edit($id){
-		$sql = 'Select * from user where id = ' . $id . '';
-		$result = $this->connect()->query($sql);
-		$numrows = $result->num_rows;
-		if($numrows > 0)
-		{
-			$data = $result->fetch_assoc();
-		}else{
-			return false;
-		}
-		return $data;
-	}
+// 	public function destroy($id){
+// 		if($id){
+// 			$sql = 'DELETE FROM user ';
+// 			$sql .= ' WHERE id = '.$id;
+// 			$result = $this->connect()->query($sql);
+// 			if($result){
+// 				echo '<script>window.location.href="index.php"</script>';
+// 			}
+// 		}
+// 	}
+// 	public function edit($id){
+// 		$sql = 'Select * from user where id = ' . $id . '';
+// 		$result = $this->connect()->query($sql);
+// 		$numrows = $result->num_rows;
+// 		if($numrows > 0)
+// 		{
+// 			$data = $result->fetch_assoc();
+// 		}else{
+// 			return false;
+// 		}
+// 		return $data;
+// 	}
 
-	public function update($id){
-		$postid = $_POST['id'];
-		$fname = $_POST['fname'];
-		$lname = $_POST['lname'];
-		$address = $_POST['address'];
+// 	public function update($id){
+// 		$postid = $_POST['id'];
+// 		$fname = $_POST['fname'];
+// 		$lname = $_POST['lname'];
+// 		$address = $_POST['address'];
 
-		$sql = 'UPDATE user';
-		$sql .= ' SET fname = "'.$fname.'", lname= "'.$lname.'", address="'.$address.'"';
-		$sql .= ' WHERE id = '. $postid;
+// 		$sql = 'UPDATE user';
+// 		$sql .= ' SET fname = "'.$fname.'", lname= "'.$lname.'", address="'.$address.'"';
+// 		$sql .= ' WHERE id = '. $postid;
 
-		$result = $this->connect()->query($sql);
-		if($result){
-			echo '<script>window.location.href="index.php"</script>';
-		}
-	}
+// 		$result = $this->connect()->query($sql);
+// 		if($result){
+// 			echo '<script>window.location.href="index.php"</script>';
+// 		}
+// 	}
 
-}
+// }
 
-class Listing extends Users {
-	public function listAllUsers(){
-		if($this->getAllUsers()){
-			$getallusers = $this->getAllUsers();
+// class Listing extends Users {
+// 	public function listAllUsers(){
+// 		if($this->getAllUsers()){
+// 			$getallusers = $this->getAllUsers();
 			
-				usort($getallusers, function ($a, $b){
-					return $a['fname'] <=> $b['fname'];
-				});
+// 				usort($getallusers, function ($a, $b){
+// 					return $a['fname'] <=> $b['fname'];
+// 				});
 			
 
-			$data = '';
-			foreach($getallusers as $getalluser){
-				$data .= '<div>';
-					$data .= '<ul>';
-						$data .= '<li>';
-						$data .= '<a href="index.php?id='.$getalluser['id'].'">';
-						$data .= 'Name: '. $getalluser['fname'] . '<br>';
-						$data .= '</a>';
-						$data .= 'Last Name: '. $getalluser['lname'] . '<br>';
-						$data .= 'Address: '. $getalluser['address'] . '<br>';
-						$data .= '</li>';
-					$data .= '</ul>';
+// 			$data = '';
+// 			foreach($getallusers as $getalluser){
+// 				$data .= '<div>';
+// 					$data .= '<ul>';
+// 						$data .= '<li>';
+// 						$data .= '<a href="index.php?id='.$getalluser['id'].'">';
+// 						$data .= 'Name: '. $getalluser['fname'] . '<br>';
+// 						$data .= '</a>';
+// 						$data .= 'Last Name: '. $getalluser['lname'] . '<br>';
+// 						$data .= 'Address: '. $getalluser['address'] . '<br>';
+// 						$data .= '</li>';
+// 					$data .= '</ul>';
 
-				$data .= '</div>';
-			}
-			return $data;
-		}
-	}
+// 				$data .= '</div>';
+// 			}
+// 			return $data;
+// 		}
+// 	}
 	
 
-	public function listSingleUser($id){
+// 	public function listSingleUser($id){
 		
-		$data = '';
-		$getSingleUser = $this->getSingleUser($id);
+// 		$data = '';
+// 		$getSingleUser = $this->getSingleUser($id);
 
-		if(count($getSingleUser) > 0){
-			$data .= '<div>';
-				$data .= '<ul>';
-					$data .= '<li>';
-					$data .= 'Name: '. $getSingleUser['fname'] . '<br>';
-					$data .= 'Last Name: '. $getSingleUser['lname'] . '<br>';
-					$data .= 'Address: '. $getSingleUser['address'] . '<br><br>';
-					$data .= '<a href="index.php?updateid='.$id.'">Update</a> | <a href="index.php?deleteid='.$id.'">Delete</a>';
-					$data .= '</li>';
-				$data .= '</ul>';
-			$data .= '</div>';
+// 		if(count($getSingleUser) > 0){
+// 			$data .= '<div>';
+// 				$data .= '<ul>';
+// 					$data .= '<li>';
+// 					$data .= 'Name: '. $getSingleUser['fname'] . '<br>';
+// 					$data .= 'Last Name: '. $getSingleUser['lname'] . '<br>';
+// 					$data .= 'Address: '. $getSingleUser['address'] . '<br><br>';
+// 					$data .= '<a href="index.php?updateid='.$id.'">Update</a> | <a href="index.php?deleteid='.$id.'">Delete</a>';
+// 					$data .= '</li>';
+// 				$data .= '</ul>';
+// 			$data .= '</div>';
 			
-		}
+// 		}
 
-		return $data;
-	}
+// 		return $data;
+// 	}
 
-	public function addUser(){
+// 	public function addUser(){
 
-		$display = 'block';
-		$fnameValidation = '<span></span>';
-		$lnameValidation = '<span></span>';
-		$AddressValidation = '<span></span>';
-		$fname = '';
-		$lname = '';
-		$address = '';
+// 		$display = 'block';
+// 		$fnameValidation = '<span></span>';
+// 		$lnameValidation = '<span></span>';
+// 		$AddressValidation = '<span></span>';
+// 		$fname = '';
+// 		$lname = '';
+// 		$address = '';
 		
 
 
-		// Add items
-		if(isset($_POST['Add'])){
+// 		// Add items
+// 		if(isset($_POST['Add'])){
 			
-			$fname = $_POST['fname'];
-			$lname = $_POST['lname'];
-			$address = $_POST['address'];
+// 			$fname = $_POST['fname'];
+// 			$lname = $_POST['lname'];
+// 			$address = $_POST['address'];
 
-			if(empty($fname)){
-				$fnameValidation = '<span style="color:red">Name field not be empty!</span>';
-			}
-			if(empty($lname)){
-				$lnameValidation = '<span style="color:red">Last Name field not be empty!</span>';
-			}
-			if(empty($address)){
-				$AddressValidation = '<span style="color:red">Last Name field not be empty!</span>';
-			}
-
-
-			if(!empty($fname) && !empty($lname) && !empty($address)){
-				self::store();
-			}
-
-		}
-
-		// Update items
-		$idonupdate = 0;
-		if(isset($_POST['Update'])){
-			$idonupdate = $_POST['id'];
-			$fname = $_POST['fname'];
-			$lname = $_POST['lname'];
-			$address = $_POST['address'];
-
-			if(empty($fname)){
-				$fnameValidation = '<span style="color:red">Name field not be empty!</span>';
-			}
-			if(empty($lname)){
-				$lnameValidation = '<span style="color:red">Last Name field not be empty!</span>';
-			}
-			if(empty($address)){
-				$AddressValidation = '<span style="color:red">Last Name field not be empty!</span>';
-			}
+// 			if(empty($fname)){
+// 				$fnameValidation = '<span style="color:red">Name field not be empty!</span>';
+// 			}
+// 			if(empty($lname)){
+// 				$lnameValidation = '<span style="color:red">Last Name field not be empty!</span>';
+// 			}
+// 			if(empty($address)){
+// 				$AddressValidation = '<span style="color:red">Last Name field not be empty!</span>';
+// 			}
 
 
-			if(!empty($fname) && !empty($lname) && !empty($address)){
-				Listing::update($idonupdate);
-			}
+// 			if(!empty($fname) && !empty($lname) && !empty($address)){
+// 				self::store();
+// 			}
 
-		}
+// 		}
+
+// 		// Update items
+// 		$idonupdate = 0;
+// 		if(isset($_POST['Update'])){
+// 			$idonupdate = $_POST['id'];
+// 			$fname = $_POST['fname'];
+// 			$lname = $_POST['lname'];
+// 			$address = $_POST['address'];
+
+// 			if(empty($fname)){
+// 				$fnameValidation = '<span style="color:red">Name field not be empty!</span>';
+// 			}
+// 			if(empty($lname)){
+// 				$lnameValidation = '<span style="color:red">Last Name field not be empty!</span>';
+// 			}
+// 			if(empty($address)){
+// 				$AddressValidation = '<span style="color:red">Last Name field not be empty!</span>';
+// 			}
+
+
+// 			if(!empty($fname) && !empty($lname) && !empty($address)){
+// 				Listing::update($idonupdate);
+// 			}
+
+// 		}
 		
-		// Check submit button values
-		$submitButton = '';
-		if(isset($_GET['updateid'])){
-			$display = 'block';
-			$idonupdate = $_GET['updateid'];
-			$updateUsers = Users::edit($_GET['updateid']);
-			if($updateUsers){
-				$fname = $updateUsers['fname'];
-				$lname = $updateUsers['lname'];
-				$address = $updateUsers['address'];
-			}
-			$submitButton = 'Update';
-		}else{
-			$submitButton = 'Add';
-		}
-		if(isset($_GET['id'])){
-			$display = 'none';
-		}
+// 		// Check submit button values
+// 		$submitButton = '';
+// 		if(isset($_GET['updateid'])){
+// 			$display = 'block';
+// 			$idonupdate = $_GET['updateid'];
+// 			$updateUsers = Users::edit($_GET['updateid']);
+// 			if($updateUsers){
+// 				$fname = $updateUsers['fname'];
+// 				$lname = $updateUsers['lname'];
+// 				$address = $updateUsers['address'];
+// 			}
+// 			$submitButton = 'Update';
+// 		}else{
+// 			$submitButton = 'Add';
+// 		}
+// 		if(isset($_GET['id'])){
+// 			$display = 'none';
+// 		}
 
 
-		$data = '<div style="display:'.$display.';">';
-		$data .= '<form action="" method="POST">';
-		$data .= '<ul>';
-			$data .= '<li>';
-			$data .= '<input type="hidden" name="id" value="'.$idonupdate.'">';
-			$data .= 'Name: <input type="text" name="fname" value="'.$fname.'"><br>';
-			$data .= $fnameValidation . "<br>";
-			$data .= 'Last Name: <input type="text" name="lname" value="'.$lname.'"><br>';
-			$data .= $lnameValidation . "<br>";
-			$data .= 'Address: <input type="text" name="address" value="'.$address.'"><br>';
-			$data .= $AddressValidation . "<br>";
-			$data .= '</li>';
-		$data .= '</ul>';
-		$data .= '<ul>';
-			$data .= '<li>';
-			$data .= '<input type="submit" name="'.$submitButton.'"/>';
-			$data .= '</li>';
-		$data .= '</ul>';
-		$data .= '</form>';
-		$data .= '<hr>';
-		$data .= '</div>';
+// 		$data = '<div style="display:'.$display.';">';
+// 		$data .= '<form action="" method="POST">';
+// 		$data .= '<ul>';
+// 			$data .= '<li>';
+// 			$data .= '<input type="hidden" name="id" value="'.$idonupdate.'">';
+// 			$data .= 'Name: <input type="text" name="fname" value="'.$fname.'"><br>';
+// 			$data .= $fnameValidation . "<br>";
+// 			$data .= 'Last Name: <input type="text" name="lname" value="'.$lname.'"><br>';
+// 			$data .= $lnameValidation . "<br>";
+// 			$data .= 'Address: <input type="text" name="address" value="'.$address.'"><br>';
+// 			$data .= $AddressValidation . "<br>";
+// 			$data .= '</li>';
+// 		$data .= '</ul>';
+// 		$data .= '<ul>';
+// 			$data .= '<li>';
+// 			$data .= '<input type="submit" name="'.$submitButton.'"/>';
+// 			$data .= '</li>';
+// 		$data .= '</ul>';
+// 		$data .= '</form>';
+// 		$data .= '<hr>';
+// 		$data .= '</div>';
 
-		return $data;
-	}
-}
+// 		return $data;
+// 	}
+// }
 
-// instance
-$listing = new Listing();
+// // instance
+// $listing = new Listing();
 
 
-// List View
-echo $listing->addUser();
+// // List View
+// echo $listing->addUser();
 
-if(isset($_GET['id'])){
-	echo $listing->listSingleUser($_GET['id']);
-}elseif(isset($_GET['deleteid'])){
-	echo $listing->listSingleUser($_GET['deleteid']);
-}elseif(isset($_GET['updateid'])){
-	// Empty script
-}else{
-	echo $listing->listAllUsers();
-}
+// if(isset($_GET['id'])){
+// 	echo $listing->listSingleUser($_GET['id']);
+// }elseif(isset($_GET['deleteid'])){
+// 	echo $listing->listSingleUser($_GET['deleteid']);
+// }elseif(isset($_GET['updateid'])){
+// 	// Empty script
+// }else{
+// 	echo $listing->listAllUsers();
+// }
 
-// Routes
-// Delete items
- if(isset($_GET['deleteid'])){
-	$deletename = $listing->getSingleUser($_GET['deleteid']);
-	$confirm = '<script>var confirm = confirm("Are you sure you want to delete '. $deletename['fname'] .'?");';
-	$confirm .=' if(confirm){ window.location.href="index.php?deleteconfirm='.$_GET['deleteid'].'"}else{ window.location.href="index.php?id='.$_GET['deleteid'].'"}';
-	$confirm .= ' </script>';
-	echo $confirm;
- }
-// Delete confirm
- if(isset($_GET['deleteconfirm'])){
-	$listing->destroy($_GET['deleteconfirm']);
- }
-
+// // Routes
+// // Delete items
+//  if(isset($_GET['deleteid'])){
+// 	$deletename = $listing->getSingleUser($_GET['deleteid']);
+// 	$confirm = '<script>var confirm = confirm("Are you sure you want to delete '. $deletename['fname'] .'?");';
+// 	$confirm .=' if(confirm){ window.location.href="index.php?deleteconfirm='.$_GET['deleteid'].'"}else{ window.location.href="index.php?id='.$_GET['deleteid'].'"}';
+// 	$confirm .= ' </script>';
+// 	echo $confirm;
+//  }
+// // Delete confirm
+//  if(isset($_GET['deleteconfirm'])){
+// 	$listing->destroy($_GET['deleteconfirm']);
+//  }
+// OOP CRUD End
 
 
 
