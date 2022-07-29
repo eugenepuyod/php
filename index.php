@@ -1,5 +1,60 @@
 <?php
 
+// https://www.w3resource.com/php-exercises/php-array-exercises.php
+
+// function getFileExtention($file){
+// 	$temp = "";	
+// 	$explodeFile = explode('.', $file);
+// 	//$temp = end($explodeFile);
+// 	$temp = current($explodeFile);
+// 	return $temp;
+
+// }
+// $file = "test.txt";
+// echo getFileExtention($file);
+
+// // Get prime number
+
+// function getEvenAndOdd($inst){
+// 	$primeNum = "";
+// 	$even = "";
+// 	$odd = "";
+// 	$count = 0;
+// 	$num = 2;
+// 	// Get Prime Numbers
+// 	while($count < 15){
+// 		$divCount = 0;
+// 		for($i = 1; $i < $inst; $i++){
+// 			if($num % $i == 0){
+// 				$divCount++;
+// 			}
+// 		}
+// 		if($divCount < 3){
+// 			$primeNum .= $num . ", ";
+// 			$count++;
+// 		}
+// 		$num++;
+// 	}
+// 	// Get Even and Odd Numbers
+// 	for($i = 1; $i < $inst; $i++){
+// 		if($i % 2 == 0){
+// 			$even .= $i . ", ";
+// 		}else{
+// 			$odd .= $i . ", ";
+// 		}
+// 	}
+// 	//echo "<pre>";
+// 	echo "Even Numbers: " . $even;
+// 	echo "<br>";
+// 	echo "Odd Numbers: " . $odd;
+// 	echo "<br>";
+// 	echo "Prim Numbers: " . $primeNum;
+
+// 	//echo "</pre>";
+// }
+// getEvenAndOdd(50);
+
+
 // $array1 = array(array(77, 87), array(23, 45));
 // $array2 = array("w3resource", "com");
 
