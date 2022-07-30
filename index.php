@@ -2,6 +2,93 @@
 
 // https://www.w3resource.com/php-exercises/php-array-exercises.php
 
+
+// class TextInput
+// {
+// 	public $getNumber;
+// 	public function add(string $text)
+// 	{
+// 		return $this->getNumber .= $text;
+// 	}
+// 	public function getValue(){
+// 		return $this->getNumber;
+// 	}
+// }
+
+// class NumericInput extends TextInput
+// {
+// 	public function add($ints)
+// 	{
+// 		if(is_numeric($ints))
+// 		{
+// 			return $this->getNumber .= $ints;
+// 		}
+// 	}
+// }
+
+// $input = new NumericInput();
+// $input->add('1');
+// $input->add('a');
+// $input->add('0');
+// $input->add('1');
+
+// echo $input->getValue();
+
+
+
+
+
+// function unique_names(array $array1, array $array2) : array
+// {
+//     $arrayMerge = array_merge($array1, $array2);
+// 	$arrayUnique = array_unique($arrayMerge);
+
+// 	return $arrayUnique;
+// }
+
+// $names = unique_names(['Ava', 'Emma', 'Olivia'], ['Olivia', 'Sophia', 'Emma']);
+// echo join(', ', $names); // should print Emma, Olivia, Ava, Sophia
+
+
+
+
+
+// echo "<pre>";
+// var_dump(unique_names($arrayName));
+// echo "</pre>";
+
+// function groupByOwners(array $files)
+// {
+//     asort($files);
+//     $fileArray = array();
+//     $fileName = "";
+//     $index = 0;
+  
+//     foreach($files as $key => $file){
+//       if($file == $fileName){
+//         $index++;
+//         $fileArray[$file][$index] = $key;
+//       }else{
+//         $fileArray[$file] = array($key);
+//       }
+      
+//       $fileName = $file;
+//     }
+  
+//     return $fileArray;
+// }
+
+// $files = array
+// (
+//     "Input.txt" => "Randy",
+//     "Code.py" => "Stan",
+//     "Output.txt" => "Randy"
+// );
+// var_dump(groupByOwners($files));
+
+
+
+
 // class LotoShupple {
 // 	public function getLoto($arrayTemp){
 // 	//$arrayTemp = array('7','42','27','37','8','22','33','3','2','18','21','30','32');
