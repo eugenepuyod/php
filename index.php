@@ -2,6 +2,50 @@
 
 // https://www.w3resource.com/php-exercises/php-array-exercises.php
 
+// class LotoShupple {
+// 	public function getLoto($arrayTemp){
+// 	//$arrayTemp = array('7','42','27','37','8','22','33','3','2','18','21','30','32');
+// 	//shuffle($arrayTemp);
+// 	//asort($arrayTemp);
+// 	$index = 0;
+// 	$inputCombinations = "";
+// 	for($i = 0; $i < count($arrayTemp); $i++){
+// 		$inputCombinations .= $arrayTemp[$i] . ", ";
+// 	}
+
+// 	for($a = 0; $a < count($arrayTemp)-5; $a++)
+// 		for($b = $a+1; $b < count($arrayTemp)-4; $b++)
+// 			for($c = $b+1; $c < count($arrayTemp)-3; $c++)
+// 				for($d = $c+1; $d < count($arrayTemp)-2; $d++)
+// 					for($e = $d+1; $e < count($arrayTemp)-1; $e++)
+// 						for($f = $e+1; $f < count($arrayTemp); $f++){
+// 							$index++;
+// 							echo "$arrayTemp[$a]-$arrayTemp[$b]-$arrayTemp[$c]-$arrayTemp[$d]-$arrayTemp[$e]-$arrayTemp[$f]<br>";
+// 						}
+// 	$totalAmount = 	$index * 20;					
+// 	echo "<hr>";						
+// 	echo "Combinations: $index<br>";
+// 	echo "Price: 20.00<br>";
+// 	echo "Total Amount: $totalAmount.00<br>";
+// 	echo "Input Numbers: $inputCombinations";
+// 	}				
+// }
+
+
+// $loto = new LotoShupple();
+// $loto->getLoto(array('7','42','27','37','8','22','50'));
+
+
+
+
+// for($a=1; $a<50-3; $a++)
+//     for($b=$a+1; $b<50-2; $b++)
+//         for($c=$b+1; $c<50-1; $c++)
+//             for($d=$c+1; $d<50; $d++)
+//                 echo "$a $b $c $d<br>";
+
+
+
 // function getFileExtention($file){
 // 	$temp = "";	
 // 	$explodeFile = explode('.', $file);
