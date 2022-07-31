@@ -4,22 +4,123 @@
 
 // closures
 
-function make_pipeline(...$funcs)
-{
-    return function($arg) use ($funcs)
-    {
-		
-		echo "<pre>";
-		print_r($funcs);
-		echo "</pre>";
-		return -1;
-    };
-}
 
-$fun = make_pipeline( function($x) { return $x * 3; },
-                      function($x) { return $x + 1; },
-                      function($x) { return $x / 2; });
-echo $fun(3); # should print 5
+// function getEven($ints){
+// 	$evenNumber = "";
+// 	$count = 0;
+// 	while($count < 10){
+// 		$divcount = 0;
+// 		for($i = 1; $i < $ints; $i++)
+// 		{
+// 			if($i % 2 == 0){
+// 				echo $i . ", ";
+// 				$evenNumber = $i;
+// 				$divcount++;
+// 			}
+// 		}
+// 		//echo $divcount . ", ";
+// 		if($divcount){
+// 			//echo $evenNumber . ", ";
+// 			$count++;
+// 		}
+
+// 	}
+	
+// }
+// getEven(50);
+
+
+
+
+
+// class A{
+// 	public $hi = "Hello";
+// }
+
+// $closure = function(){
+// 	return $this->hi;
+// };
+
+// $getHi = $closure->bindTo(new A, 'A');
+// echo $getHi();
+
+
+
+// $hello = "Hello";
+
+// $getHello = function($arg) use ($hello){
+// 	echo $hello . $arg;
+// };
+
+// $getHello(" World");
+
+
+
+// function getPrimeNumber($ints){
+// 	$count = 0;
+// 	$num = 2;
+// 	while($count < 5){
+// 		$divcount = 0;
+// 		for($i = 1; $i < $ints; $i++){
+// 			if($num % $i == 0){
+// 				$divcount++;
+// 			}
+// 		}
+// 		//$modulo = $divcount % $num;
+// 		echo $divcount." - " .$num. ", <br>";
+// 		//echo $divcount . ", ";
+				
+// 		if($divcount < 3){
+// 			//echo $num . ", ";	
+// 			//echo $divcount . ' - ' .$num. "<br>";
+// 			$count++;
+// 		}
+		
+// 		$num++;
+// 	}
+// }
+
+// getPrimeNumber(50);
+
+
+
+// function makeClosure(...$funcs){
+// 	return function($test) use ($funcs){
+// 		echo "<pre>";
+// 		//$funcs = $test;
+// 		//print_r($funcs);
+// 		foreach($funcs as $func){
+// 			print_r($func);
+// 		}
+// 		echo "<br>";
+// 		print_r($test);
+// 		echo "</pre>";
+// 	};
+// }
+
+// $newMakeClosure = makeClosure(function($x){
+// 								return $x + 5;
+// 							});
+// $newMakeClosure(3);
+
+
+
+// function make_pipeline(...$funcs)
+// {
+//     return function($arg) use ($funcs)
+//     {
+		
+// 		echo "<pre>";
+// 		print_r($funcs);
+// 		echo "</pre>";
+// 		return -1;
+//     };
+// }
+
+// $fun = make_pipeline( function($x) { return $x * 3; },
+//                       function($x) { return $x + 1; },
+//                       function($x) { return $x / 2; });
+// echo $fun(3); # should print 5
 
 
 
