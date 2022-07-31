@@ -2,6 +2,77 @@
 
 // https://www.w3resource.com/php-exercises/php-array-exercises.php
 
+// closures
+
+function make_pipeline(...$funcs)
+{
+    return function($arg) use ($funcs)
+    {
+		
+		echo "<pre>";
+		print_r($funcs);
+		echo "</pre>";
+		return -1;
+    };
+}
+
+$fun = make_pipeline( function($x) { return $x * 3; },
+                      function($x) { return $x + 1; },
+                      function($x) { return $x / 2; });
+echo $fun(3); # should print 5
+
+
+
+
+// $var = function(){
+// 	return "I am a " . func_get_arg(0);
+// };
+// print_r($var('programmer'));
+
+
+
+
+
+// class Pipeline
+// {
+//     private $number;
+//     public function __construct($say)
+//     {
+//         $this->number = $say;
+//     }
+
+//     function process(Closure $closure)
+//     {
+//         $next = function () use ($closure) {
+//             foreach ($this->number as $say) {
+
+//                 yield $closure($say);
+//             }
+//         };
+//         return new self($next());
+//     }
+
+//     function result()
+//     {
+//         foreach ($this->number as $i) {
+
+//             echo $i . "\n";
+//         }
+//     }
+// }
+// $pipe = new Pipeline([1, 2, 3]);
+
+// $pipe->process(function ($no) {
+//     return $no * 2;
+// })->process(function ($no) {
+//     return $no + 2;
+// })->process(function ($no){
+// 	return $no + 1;
+// })->result();
+
+
+
+
 
 // class TextInput
 // {
@@ -63,7 +134,7 @@
 //     $fileArray = array();
 //     $fileName = "";
 //     $index = 0;
-  
+
 //     foreach($files as $key => $file){
 //       if($file == $fileName){
 //         $index++;
@@ -71,10 +142,10 @@
 //       }else{
 //         $fileArray[$file] = array($key);
 //       }
-      
+
 //       $fileName = $file;
 //     }
-  
+
 //     return $fileArray;
 // }
 
@@ -109,13 +180,13 @@
 // 							$index++;
 // 							echo "$arrayTemp[$a]-$arrayTemp[$b]-$arrayTemp[$c]-$arrayTemp[$d]-$arrayTemp[$e]-$arrayTemp[$f]<br>";
 // 						}
-// 	$totalAmount = 	$index * 20;					
-// 	echo "<hr>";						
+// 	$totalAmount = 	$index * 20;
+// 	echo "<hr>";
 // 	echo "Combinations: $index<br>";
 // 	echo "Price: 20.00<br>";
 // 	echo "Total Amount: $totalAmount.00<br>";
 // 	echo "Input Numbers: $inputCombinations";
-// 	}				
+// 	}
 // }
 
 
@@ -134,7 +205,7 @@
 
 
 // function getFileExtention($file){
-// 	$temp = "";	
+// 	$temp = "";
 // 	$explodeFile = explode('.', $file);
 // 	//$temp = end($explodeFile);
 // 	$temp = current($explodeFile);
@@ -265,7 +336,7 @@
 
 // 		if($result){
 // 			echo '<script>window.location.href="index.php"</script>';
-// 		}	
+// 		}
 // 	}
 
 // 	public function destroy($id){
@@ -313,11 +384,11 @@
 // 	public function listAllUsers(){
 // 		if($this->getAllUsers()){
 // 			$getallusers = $this->getAllUsers();
-			
+
 // 				usort($getallusers, function ($a, $b){
 // 					return $a['fname'] <=> $b['fname'];
 // 				});
-			
+
 
 // 			$data = '';
 // 			foreach($getallusers as $getalluser){
@@ -337,10 +408,10 @@
 // 			return $data;
 // 		}
 // 	}
-	
+
 
 // 	public function listSingleUser($id){
-		
+
 // 		$data = '';
 // 		$getSingleUser = $this->getSingleUser($id);
 
@@ -355,7 +426,7 @@
 // 					$data .= '</li>';
 // 				$data .= '</ul>';
 // 			$data .= '</div>';
-			
+
 // 		}
 
 // 		return $data;
@@ -370,12 +441,12 @@
 // 		$fname = '';
 // 		$lname = '';
 // 		$address = '';
-		
+
 
 
 // 		// Add items
 // 		if(isset($_POST['Add'])){
-			
+
 // 			$fname = $_POST['fname'];
 // 			$lname = $_POST['lname'];
 // 			$address = $_POST['address'];
@@ -421,7 +492,7 @@
 // 			}
 
 // 		}
-		
+
 // 		// Check submit button values
 // 		$submitButton = '';
 // 		if(isset($_GET['updateid'])){
@@ -523,11 +594,11 @@
 
 // 		$stringVal .= $substr ."". $strlen . " ";
 // 	}
-	
 
-	
+
+
 // 	echo $stringVal;
-	
+
 // }
 // getStrlen('aaabbcddefghhh');
 
@@ -584,7 +655,7 @@
 // 	asort($numbers);
 // 	$index = array_key_first($numbers);
 // 	return intval($numbers[$index]);
-	
+
 // }
 // echo getLowestInt(array(1,3,4,-12,0,99,'-100s'));
 
@@ -623,7 +694,7 @@
 // "Slovenia"=>"Ljubljana", "Germany" => "Berlin", "Greece" => "Athens", "Ireland"=>"Dublin",
 // "Netherlands"=>"Amsterdam", "Portugal"=>"Lisbon", "Spain"=>"Madrid", "Sweden"=>"Stockholm",
 // "United Kingdom"=>"London", "Cyprus"=>"Nicosia", "Lithuania"=>"Vilnius", "Czech Republic"=>"Prague", "Estonia"=>"Tallin", "Hungary"=>"Budapest", "Latvia"=>"Riga", "Malta"=> "Valetta","Austria" => "Vienna", "Poland"=>"Warsaw") ;
-// $max_key = max( array_keys( $ceu) ); 
+// $max_key = max( array_keys( $ceu) );
 
 // echo $max_key."\n";
 
@@ -645,7 +716,7 @@
     // "Code.py" => "Stan",
     // "Output.txt" => "Randy",
 	// "Inputs.txt" => "Randy",
-	
+
 // );
 // asort($files);
 
@@ -657,10 +728,10 @@
 // $newFiles = array();
 // $index = 0;
 // foreach($files as $key => $file){
-	
+
 // 	if(!empty($file))
 // 	{
-		
+
 // 		if($file == $currentName)
 // 		{
 // 			$index++;
@@ -671,9 +742,9 @@
 // 		}
 
 // 		$currentName = $file;
-		
+
 // 	}
-	
+
 // }
 
 // echo "<pre>";
@@ -694,7 +765,7 @@
 // echo "<pre>";
 // print_r(($max));
 // echo "</pre>";
-// // Show maximum and minimum string length using max() function and min() function 
+// // Show maximum and minimum string length using max() function and min() function
 // // echo "The shortest array length is " . min($new_array) .
 // // ". The longest array length is " . max($new_array).'.';
 
@@ -779,7 +850,7 @@
 // function array_merge_by_idex($x, $y){
 // 	$temp = array();
 // 	$temp[] = $x;
-	
+
 // 	if(is_scalar($y))
 // 	{
 // 		$temp[] = $y;
@@ -835,7 +906,7 @@
 
 // $arrayCount = count($explodeNumber);
 // $average = $totalvalue/$arrayCount;
-// // Averate Temperatures: 
+// // Averate Temperatures:
 // echo "Average is: " . $average."<br>";
 
 // // Lowest Temperatures:
@@ -919,7 +990,7 @@
 // 		"Title": "The Cuckoos Calling",
 // 		"Author": "Robert Galbraith",
 // 		"Detail":
-// 		{ 
+// 		{
 // 			"Publisher": "Little Brown"
 // 		}
 // 	}';
@@ -937,7 +1008,7 @@
 // 	"Title": "The Cuckoos Calling",
 // 	"Author": "Robert Galbraith",
 // 	"Detail":
-// 	{ 
+// 	{
 // 		"Publisher": "Little Brown"
 // 	}
 // }';
@@ -969,14 +1040,14 @@
 
 // $original = array( '1','2','3','4','5' );
 // echo 'Original array : '."\n";
-// foreach ($original as $x) 
+// foreach ($original as $x)
 // {echo "$x ";}
 
 // $inserted = '$';
-// array_splice( $original, 3, 0, $inserted ); 
+// array_splice( $original, 3, 0, $inserted );
 // echo " \n After inserting '$' the array is : "."\n";
 
-// foreach ($original as $x) 
+// foreach ($original as $x)
 // {echo "$x ";}
 // echo "\n"
 
@@ -997,7 +1068,7 @@
 // 			if(($num % $i) ==  0)
 // 			{
 // 				$divcount++;
-				
+
 // 			}
 // 		}
 
