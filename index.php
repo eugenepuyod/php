@@ -2,18 +2,92 @@
 
 // https://www.w3resource.com/php-exercises/php-array-exercises.php
 
-function getEvenNum(int $ints){
-	$divcount = 0;
-	for($i = 1; $i < $ints; $i++){
-		if($i % 2 == 0){
-			if($divcount < 5){
-				echo $i . ", ";
-			}
-			$divcount++;
-		}
-	}
-}
-getEvenNum(50);
+
+$colors = array(
+	0 => 'Red',
+	1 => 'Green',
+	2 => 'White',
+	3 => 'Black',
+	4 => 'Red'
+);
+
+$newcolors = array_keys(array_flip($colors));
+
+echo "<pre>";
+print_r($newcolors);
+echo "</pre>";
+
+
+// Write a PHP program to remove duplicate values from an array which contains only strings or only integers.
+// $colors = array( 
+// 	0 => 'Red', 
+// 	1 => 'Green', 
+// 	2 => 'White', 
+// 	3 => 'Black', 
+// 	4 => 'Red', 
+//   ); 
+  
+//   $numbers = array( 
+// 	0 => 100, 
+// 	1 => 200, 
+// 	2 => 100, 
+// 	3 => -10, 
+// 	4 => -10, 
+// 	5 => 0, 
+//   ); 
+//   $uniq_colors = array_keys(array_flip($colors)); 
+//   $uniq_numbers = array_keys(array_flip($numbers)); 
+//   print_r($uniq_colors);
+//   print_r($uniq_numbers);
+
+
+
+// PHP function to floor decimal numbers with precision
+// function floorDec($number, $precision, $separator)
+// {
+// 	$number_part=explode($separator, $number);
+
+
+// 	$number_part[1]=substr_replace($number_part[1],$separator,$precision,0);
+
+	
+// 	if($number_part[0]>=0)
+// 		{$number_part[1]=floor($number_part[1]);}
+// 	else
+// 		{$number_part[1]=ceil($number_part[1]);}
+
+// 	$ceil_number= array($number_part[0],$number_part[1]);
+// 	return implode($separator,$ceil_number);
+// }
+// print_r(floorDec(1.155, 2, ".")."<br>");
+// print_r(floorDec(-2.9636, 3, ".")."<br>");
+// print_r(floorDec(100.25781, 4, ".")."<br>");
+
+
+
+// function min_values_not_zero(Array $values) 
+// {
+// //echo  min(array_diff(array_map('intval', $values), array(0)));
+// //echo min($values);
+// }
+// $arraynum = array(1, 2, 7, '-400', -300, 200);
+// min_values_not_zero($arraynum);
+
+
+
+
+// function getEvenNum(int $ints){
+// 	$divcount = 0;
+// 	for($i = 1; $i < $ints; $i++){
+// 		if($i % 2 == 0){
+// 			if($divcount < 10){
+// 				echo $i . ", ";
+// 			}
+// 			$divcount++;
+// 		}
+// 	}
+// }
+// getEvenNum(50);
 
 
 
