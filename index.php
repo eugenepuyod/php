@@ -2,32 +2,64 @@
 
 // https://www.w3resource.com/php-exercises/php-array-exercises.php
 
+// function getEvenNum(int $ints){
+// 	$divcount = 0;
+// 	for($i = 1; $i < $ints; $i++){
+// 		if($i % 2 == 0){
+// 			if($divcount <= 5){
+// 				echo $i . ", ";
+// 			}
+// 			$divcount++;
+// 		}
+// 	}
+// }
+// getEvenNum(50);
+
+
+
+
+// // for loop with limit
+// function getEvenNumber(int $ints){
+// 	$even = array();
+// 	for($i = 1; $i < $ints; $i++){
+// 		// ($i % 2 == 0) = even
+// 		// ($i % 2 != 0) = odd
+// 		if($i % 2 == 0){
+// 			$even[$i] = $i;
+// 		}
+// 	}
+// 	// $arrayspliceEven is the splice $even[] return from 0 - 10;
+// 	// still looping the array even[] untill it reach to loop 50
+// 	$arrayspliceEven = array_slice($even, 0, 10);
+	
+// 	for($i = 0; $i < count($arrayspliceEven); $i++){
+// 		echo $arrayspliceEven[$i] . ", ";
+// 	}
+// }
+// getEvenNumber(50);
+
+
 // closures
 
-
-// function getEven($ints){
-// 	$evenNumber = "";
-// 	$count = 0;
-// 	while($count < 10){
-// 		$divcount = 0;
-// 		for($i = 1; $i < $ints; $i++)
-// 		{
-// 			if($i % 2 == 0){
-// 				echo $i . ", ";
-// 				$evenNumber = $i;
-// 				$divcount++;
-// 			}
-// 		}
-// 		//echo $divcount . ", ";
-// 		if($divcount){
-// 			//echo $evenNumber . ", ";
-// 			$count++;
-// 		}
-
+// class Classclosure{
+// 	private $name = "Venice Puyod";
+// 	public function getName(){
+// 		return $this->name;
 // 	}
-	
 // }
-// getEven(50);
+// $newname = "Brandon";
+// $closure = function() use ($newname){
+// 	echo $this->getName() . " and " .$newname;
+// };
+
+// $newclosure = function(){
+
+// };
+
+// $getClosure = $closure->bindTo(new Classclosure, 'Classclosure');
+// $getClosure();
+// echo "<br>";
+// echo get_class($newclosure);
 
 
 
