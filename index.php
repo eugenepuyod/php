@@ -2,6 +2,21 @@
 
 // https://www.w3resource.com/php-exercises/php-array-exercises.php
 
+function getEvenNum(int $ints){
+	$divcount = 0;
+	for($i = 1; $i < $ints; $i++){
+		if($i % 2 == 0){
+			if($divcount < 5){
+				echo $i . ", ";
+			}
+			$divcount++;
+		}
+	}
+}
+getEvenNum(50);
+
+
+
 // function getEvenNum(int $ints){
 // 	$divcount = 0;
 // 	for($i = 1; $i < $ints; $i++){
