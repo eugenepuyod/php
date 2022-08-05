@@ -19,29 +19,66 @@ if(isset($_GET['id'])){
 
 ?>
 
-<!-- <script>
-class User {
-	constructor(email, name)
-	{
-		this.email = email;
-		this.name = name;
+<script>
+
+class A{
+	fname = "Brardon";
+	getfname = function(){
+		return this.fname;
 	}
 }
 
-class Admin extends User {
-	delete(user)
-	{
-		users = users.filter(u => {
-			return u.email != user.email
-		});
-	}
+newFname = function(){
+	return this.getfname();
 }
 
-var user1 = new User('test@test.com', 'test');
-var user2 = new User('test2@test.com', 'test2');
-var admin = new Admin('admin@test.com', 'admin');
+myName = newFname.bind(new A, 'A');
+console.log(myName());
 
-var users = [user1,user2,admin];
 
-cosole.log(users);
-</script> -->
+
+// class A{
+// 	name = "Brandon";
+// 	getname = function(){
+// 		return this.name;
+// 	}
+// }
+
+// var getName = function(){
+// 	return this.getname();
+// }
+
+// var newName = getName.bind(new A, 'A');
+// console.log(newName());
+
+
+
+// class User {
+// 	constructor(email, name)
+// 	{
+// 		this.email = email;
+// 		this.name = name;
+// 	}
+// }
+
+// class Admin extends User {
+// 	delete(user)
+// 	{
+// 		users = users.filter(u => {
+// 			return u.email != user.email
+// 		});
+// 	}
+// }
+
+// var user1 = new User('test@test.com', 'test');
+// var user2 = new User('test2@test.com', 'test2');
+// var admin = new Admin('admin@test.com', 'admin');
+
+// var users = [user1,user2,admin];
+
+//cosole.log(users);
+
+
+
+
+</script>
