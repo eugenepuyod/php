@@ -7,21 +7,68 @@
 // strripos() - Finds the position of the last occurrence of a string inside another string (case-insensitive)
 
 
+
+
+
 // Getter and Setter
+
+// class Demo{
+// 	public $data = array();
+
+// 	public function __set($name, $value)
+// 	{
+// 		$this->data[$name] = $value;
+// 	}
+
+// 	public function getVic(){
+// 		return $this->data;
+// 	}
+// }
+
+// $arrayNames = array(
+// 	'firstname' => 'Brandon',
+// 	'lastname' => 'Luis',
+// 	'emailadd' => 'Chelsey',
+// 	'emailadd' => 'Chelsey',
+// 	'emailadd1' => 'Chelsey',
+// 	'lastname' => 'Luis',
+// );
+// // return no repeated values
+// asort($arrayNames);
+// $arrayNames = array_keys(array_flip($arrayNames));
+
+
+// $demo = new Demo();
+// $namesArray = array();
+// // Instead of 
+// // $demo->firstname = 'Brandon';
+// // $demo->lastname = 'Luis';
+// // $demo->emailadd = 'Chelsey';
+
+
+// foreach($arrayNames as $key => $names)
+// {
+// 	$namesArray = $demo->$key = $names;
+// }
+
+// echo "<pre>";
+// print_r($demo->getVic());
+// echo "</pre>";
+
+
+
 
 
 
 // class A{
+// 	private $user;
+// 	private $email;
 // 	public static $parentid = 23432;
 // }
 
 // class Users extends A{
-// 	private $user;
-// 	private $email;
 // 	public static $parentName = "Parent";
-
 // 	public static $newuser = 516313221;
-
 // 	function __construct($user, $email)
 // 	{
 // 		$this->user = $user;
@@ -37,7 +84,7 @@
 // 	}
 
 // 	public static function getuser(){
-// 		return parent::$parentid;
+// 		return self::$parentid;
 // 	}
 
 // }
@@ -49,6 +96,14 @@
 // $myUsers = Users::getuser();
 // echo $myUsers;
 
+
+// $closure = function(){
+// 	return $this->getEmail();
+// };
+
+// $getClosure = $closure->bindTo(new Users('Venice', 'Venice@gmail.com'), 'Users');
+// echo "<br>";
+// echo $getClosure();
 
 
 
