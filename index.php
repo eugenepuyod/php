@@ -2,20 +2,131 @@
 
 // https://www.w3resource.com/php-exercises/php-array-exercises.php
 
+// strrpos() - Finds the position of the last occurrence of a string inside another string (case-sensitive)
+// stripos() - Finds the position of the first occurrence of a string inside another string (case-insensitive)
+// strripos() - Finds the position of the last occurrence of a string inside another string (case-insensitive)
 
-$colors = array(
-	0 => 'Red',
-	1 => 'Green',
-	2 => 'White',
-	3 => 'Black',
-	4 => 'Red'
-);
 
-$newcolors = array_keys(array_flip($colors));
+// Getter and Setter
 
-echo "<pre>";
-print_r($newcolors);
-echo "</pre>";
+
+
+// class A{
+// 	public static $parentid = 23432;
+// }
+
+// class Users extends A{
+// 	private $user;
+// 	private $email;
+// 	public static $parentName = "Parent";
+
+// 	public static $newuser = 516313221;
+
+// 	function __construct($user, $email)
+// 	{
+// 		$this->user = $user;
+// 		$this->email = $email;
+// 	}
+
+// 	public function getEmail(){
+// 		if(strpos($this->email, '@')){
+// 			return $this->email;
+// 		}else{
+// 			return "Invalid email address: $this->email.";
+// 		}
+// 	}
+
+// 	public static function getuser(){
+// 		return parent::$parentid;
+// 	}
+
+// }
+
+
+// $getUsers = new Users('brandon', 'brandon@gmail.com');
+// echo $getUsers->getEmail();
+// echo "<br>";
+// $myUsers = Users::getuser();
+// echo $myUsers;
+
+
+
+
+
+// class A{
+// 	public $var = array();
+
+// 	// function __set($name, $value)
+// 	// {
+// 	// 	$this->var[$name] = $value;
+// 	// }
+
+// 	// function __get($name)
+// 	// {
+// 	// 	return $this->var;
+// 	// }
+// }
+
+// $getA = new A();
+// $getA->var = "Hello";
+// $getA->name = "Brandon";
+// $getA->id = 237927389742;
+// echo $getA->id;
+
+
+
+
+
+// class Animal{
+// 	private $aname;
+// 	public function displayName(){
+// 		return $this->aname;
+// 	}
+
+// }
+
+// class Dog extends Animal{
+// 	// public function __set($name, $value)
+// 	// {
+// 	// 	$this->aname = $value;
+// 	// }
+// 	// public function __get($name)
+// 	// {
+// 	// 	return $name;
+// 	// }
+// 	public function getname(){
+// 		return $this->aname;
+// 	}
+// }
+
+// $closure = function(){
+// 	$this->aname = "Brands Johnson";
+// 	echo $this->getname();
+// };
+
+
+
+
+// $getName = $closure->bindTo(new Dog, 'Dog');
+// $getName();
+
+
+
+
+
+// $colors = array(
+// 	0 => 'Red',
+// 	1 => 'Green',
+// 	2 => 'White',
+// 	3 => 'Black',
+// 	4 => 'Red'
+// );
+
+// $newcolors = array_keys(array_flip($colors));
+
+// echo "<pre>";
+// print_r($newcolors);
+// echo "</pre>";
 
 
 // Write a PHP program to remove duplicate values from an array which contains only strings or only integers.

@@ -12,7 +12,8 @@ class Db {
 		$this->servername = "localhost";
 		$this->username = "root";
 		$this->password = "";
-		$this->dbname = "crudvue2";
+		//$this->dbname = "crudvue2";
+		$this->dbname = "test123";
 		
 
 		$conn = new \mysqli($this->servername, $this->username, $this->password, $this->dbname);
