@@ -6,6 +6,93 @@
 // stripos() - Finds the position of the first occurrence of a string inside another string (case-insensitive)
 // strripos() - Finds the position of the last occurrence of a string inside another string (case-insensitive)
 
+// Upload file
+
+if(isset($_POST['submit'])){
+
+	$files = $_FILES['file'];
+	$fileName = $files['name'];
+	$fileExt = explode('.', $fileName);
+	$fileExtActual = strtolower(end($fileExt));
+
+
+	$fileTmpName = $files['tmp_name'];
+	$fileError = $files['error'];
+	$fileSize = $files['size'];
+	$fileAllowed = array('jpg', 'jpeg', 'png', 'pdf');
+
+	if(in_array($fileExtActual, $fileAllowed)){
+		if($fileError === 0){
+			if($fileSize < 1000000){
+
+				$fileNameNew = uniqid('', true).".".$fileExtActual;
+				$fileDestination = 'uploads/'. $fileNameNew;
+				move_uploaded_file($fileTmpName,$fileDestination);
+
+				header("Location: index.php?uploadsuccess");
+			}else{
+				echo "File size is too big";
+			}
+		}else{
+			echo "File error";
+		}
+	}else{
+		echo "File type not accepted";
+	}
+
+
+}
+
+
+
+
+// // Abstract class and Interface
+// // Abstract classes generalize behavior while Interface standardize behavior.
+// abstract class General{
+// 	private $name = "Brandon";
+// 	private $newlname = "New";
+// 	public function getName(){
+// 		return $this->name;
+// 	}
+// 	abstract public function getLname();
+// }
+
+// interface Standar{
+// 	function getLname();
+// }
+
+
+// class Person extends General implements Standar{
+// 	private $lname = "Johnsons";
+// 	function getLname(){
+// 		return $this->lname;
+// 	}
+// }
+
+// $name = new Person();
+// echo $name->getName() . ' ' .$name->getLname();
+
+
+
+
+
+// $array1 = array(array(77, 87), array(23, 45));
+// $array2 = array("w3resource", "com");
+
+// function merge_value($x, $y){
+// 	$temp = array();
+// 	$temp[] = $x;
+// 	if(is_scalar($y)){
+// 		$temp[] = $y;
+// 	}else{
+// 		foreach($y as $k => $v){
+// 			$temp[] = $v;
+// 		}
+// 	}
+// 	return $temp;
+// }
+
+// echo "<pre>";print_r(array_map("merge_value", $array2, $array1));
 
 
 
@@ -1862,6 +1949,13 @@ funa();
 	<script src="https://code.jquery.com/jquery-1.11.3.js"></script>
 </head>
 <body>
+
+<form method="POST" enctype="multipart/form-data" action="index.php">
+<input type="file" name="file">
+<button type="submit" name="submit">Upload</button>
+
+</form>
+
 
 <script type="text/javascript">
 jQuery(document).ready(function(){
