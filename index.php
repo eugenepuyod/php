@@ -7,37 +7,70 @@
 // strripos() - Finds the position of the last occurrence of a string inside another string (case-insensitive)
 
 
-//Write a PHP function to sort subnets.
-function sort_subnets($x, $y){
-	$x_array = explode('.',$x);
-	$y_array = explode('.',$y);
+// //Write a PHP function to sort subnets.
+// $subnet_list = 
+// array('192.169.12',
+// '192.167.11',
+// '192.169.14',
+// '192.168.13',
+// '192.167.12',
+// '122.169.15',
+// '192.167.16'
+// );
 
-	foreach(range(0,3) as $i){
-		if($x_array[$i] < $y_array[$i]){
-			return -1;
-		}
-		elseif($x_array[$i] > $y_array[$i]){
-			return 1;
-		}
 
-	}
-	return 1;
-}
+// usort($subnet_list,function($x, $y){
+// 	$x_array = explode('.', $x);
+// 	$y_array = explode('.', $y);
 
-$subnet_list = 
-array('192.169.12',
-'192.167.11',
-'192.169.14',
-'192.168.13',
-'192.167.12',
-'122.169.15',
-'192.167.16'
-);
+// 	foreach(range(0,3) as $i){
+// 		if($x_array[$i] < $y_array[$i]){
+// 			return -1;
+// 		}
+// 		elseif($x_array[$i] > $y_array[$i]){
+// 			return 1;
+// 		}
+// 	}
+// 	return 1;
+// });
 
-echo "<pre>";print_r($subnet_list);
-echo "<br>";
-usort($subnet_list, 'sort_subnets');
-echo "<pre>";print_r($subnet_list);
+
+// echo "<pre>";print_r($subnet_list);
+
+
+
+
+
+// function sort_subnets($x, $y){
+// 	$x_array = explode('.',$x);
+// 	$y_array = explode('.',$y);
+
+// 	foreach(range(0,3) as $i){
+// 		if($x_array[$i] < $y_array[$i]){
+// 			return -1;
+// 		}
+// 		elseif($x_array[$i] > $y_array[$i]){
+// 			return 1;
+// 		}
+
+// 	}
+// 	return 1;
+// }
+
+// $subnet_list = 
+// array('192.169.12',
+// '192.167.11',
+// '192.169.14',
+// '192.168.13',
+// '192.167.12',
+// '122.169.15',
+// '192.167.16'
+// );
+
+// echo "<pre>";print_r($subnet_list);
+// echo "<br>";
+// usort($subnet_list, 'sort_subnets');
+// echo "<pre>";print_r($subnet_list);
 
 
 
