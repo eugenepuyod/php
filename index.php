@@ -6,42 +6,131 @@
 // stripos() - Finds the position of the first occurrence of a string inside another string (case-insensitive)
 // strripos() - Finds the position of the last occurrence of a string inside another string (case-insensitive)
 
-// Upload file
 
-if(isset($_POST['submit'])){
+//Write a PHP function to sort subnets.
+function sort_subnets($x, $y){
+	$x_array = explode('.',$x);
+	$y_array = explode('.',$y);
 
-	$files = $_FILES['file'];
-	$fileName = $files['name'];
-	$fileExt = explode('.', $fileName);
-	$fileExtActual = strtolower(end($fileExt));
-
-
-	$fileTmpName = $files['tmp_name'];
-	$fileError = $files['error'];
-	$fileSize = $files['size'];
-	$fileAllowed = array('jpg', 'jpeg', 'png', 'pdf');
-
-	if(in_array($fileExtActual, $fileAllowed)){
-		if($fileError === 0){
-			if($fileSize < 1000000){
-
-				$fileNameNew = uniqid('', true).".".$fileExtActual;
-				$fileDestination = 'uploads/'. $fileNameNew;
-				move_uploaded_file($fileTmpName,$fileDestination);
-
-				header("Location: index.php?uploadsuccess");
-			}else{
-				echo "File size is too big";
-			}
-		}else{
-			echo "File error";
+	foreach(range(0,3) as $i){
+		if($x_array[$i] < $y_array[$i]){
+			return -1;
 		}
-	}else{
-		echo "File type not accepted";
+		elseif($x_array[$i] > $y_array[$i]){
+			return 1;
+		}
+
 	}
-
-
+	return 1;
 }
+
+$subnet_list = 
+array('192.169.12',
+'192.167.11',
+'192.169.14',
+'192.168.13',
+'192.167.12',
+'122.169.15',
+'192.167.16'
+);
+
+echo "<pre>";print_r($subnet_list);
+echo "<br>";
+usort($subnet_list, 'sort_subnets');
+echo "<pre>";print_r($subnet_list);
+
+
+
+
+
+// // Login
+// class Login{
+// 	private $username;
+// 	private $password;
+// 	private $message;
+// 	private $usernamePost;
+// 	private $passwordPost;
+// 	public $validateUser = "";
+// 	public $validatePass = "";
+// 	public function __construct($username, $password)
+// 	{
+// 		$this->username = $username;
+// 		$this->password = $password;
+// 	}
+// 	public function validate(){
+// 		if(empty($this->username)){
+// 			$this->validateUser = '<span>Username not be empty</span>';
+// 		}
+// 		if(empty($this->password)){
+// 			$this->validatePass = '<span>Password not be empty</span>';
+// 		}
+// 		return $this->message;
+// 	}
+// 	function getUsername(){
+// 		return $this->username;
+// 	}
+// 	function getPassword(){
+// 		return $this->password;
+// 	}
+	
+// 	public function queryUserPass(){
+// 		$this->usernamePost = 'brandon@gmail.com';
+// 		$this->passwordPost = '1234';
+
+// 		if($this->username == $this->usernamePost && $this->password == $this->passwordPost){
+// 			return "Successfully loged in";
+// 		}else{
+// 			return "Invalid credentials";
+// 		}
+// 	}
+
+// }
+
+// 	$username = "";
+// 	$password = "";
+// 	$login = new Login($username, $password);
+
+// if(isset($_POST['submit'])){
+// 	$username = $_POST['username'];
+// 	$password = $_POST['password'];
+// 	$login = new Login($username, $password);
+// 	echo $login->queryUserPass();
+// }
+
+
+
+
+// // Upload file
+// if(isset($_POST['submit'])){
+
+// 	$files = $_FILES['file'];
+// 	$fileName = $files['name'];
+// 	$fileExt = explode('.', $fileName);
+// 	$fileExtActual = strtolower(end($fileExt));
+// 	$fileTmpName = $files['tmp_name'];
+// 	$fileError = $files['error'];
+// 	$fileSize = $files['size'];
+// 	$fileAllowed = array('jpg', 'jpeg', 'png', 'pdf');
+
+// 	if(in_array($fileExtActual, $fileAllowed)){
+// 		if($fileError === 0){
+// 			if($fileSize < 1000000){
+
+// 				$fileNameNew = uniqid('', true).".".$fileExtActual;
+// 				$fileDestination = 'uploads/'. $fileNameNew;
+// 				move_uploaded_file($fileTmpName,$fileDestination);
+
+// 				header("Location: index.php?uploadsuccess");
+// 			}else{
+// 				echo "File size is too big";
+// 			}
+// 		}else{
+// 			echo "File error";
+// 		}
+// 	}else{
+// 		echo "File type not accepted";
+// 	}
+// }
 
 
 
@@ -1950,11 +2039,20 @@ funa();
 </head>
 <body>
 
-<form method="POST" enctype="multipart/form-data" action="index.php">
+<!--form action="index.php" method="POST">
+	<label for="username">Username</label>
+	<input type="text" name="username" value="<?php echo $login->getUsername(); ?>" style="margin:5px"><br>
+	<label for="password">Password</label>
+	<input type="password" name="password" value="<?php echo $login->getPassword(); ?>" style="margin:5px"><br>
+	<button type="submit" name="submit" style="margin:5px">Login</button>
+
+</!--form-->
+
+<!--form method="POST" enctype="multipart/form-data" action="index.php">
 <input type="file" name="file">
 <button type="submit" name="submit">Upload</button>
 
-</form>
+</!--form-->
 
 
 <script type="text/javascript">
