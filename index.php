@@ -7,7 +7,26 @@
 // strripos() - Finds the position of the last occurrence of a string inside another string (case-insensitive)
 
 
-// //Write a PHP function to sort subnets.
+//Write a PHP function to sort subnets.
+
+
+$arraylist = array(
+	array('name'=> 'Luis Andrian', 'id'=>4),
+	array('name'=> 'Brndon Johnson', 'id'=>6),
+	array('name'=> 'Chelsey Alex', 'id'=> 2),
+);
+
+usort($arraylist, function($a, $b){
+	return $a['id'] <=> $b['id'];
+});
+
+echo "<pre>"; print_r($arraylist);
+
+
+
+
+
+
 // $subnet_list = 
 // array('192.169.12',
 // '192.167.11',
