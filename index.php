@@ -21,32 +21,32 @@
 
 
 //Write a PHP function to sort subnets.
+$subnet_list =  array(
+	'192.169.12',
+	'192.167.11',
+	'192.169.14',
+	'192.168.13',
+	'192.167.12',
+	'122.169.15',
+	'192.167.16'
+);
 
-// $subnet_list = 
-// array('192.169.12',
-// '192.167.11',
-// '192.169.14',
-// '192.168.13',
-// '192.167.12',
-// '122.169.15',
-// '192.167.16'
-// );
+
+usort($subnet_list,function($x, $y){
+	$x_array = explode('.', $x);
+	$y_array = explode('.', $y);
 
 
-// usort($subnet_list,function($x, $y){
-// 	$x_array = explode('.', $x);
-// 	$y_array = explode('.', $y);
-
-// 	foreach(range(0,3) as $i){
-// 		if($x_array[$i] < $y_array[$i]){
-// 			return -1;
-// 		}
-// 		elseif($x_array[$i] > $y_array[$i]){
-// 			return 1;
-// 		}
-// 	}
-// 	return 1;
-// });
+	foreach(range(0,3) as $i){
+		if($x_array[$i] < $y_array[$i]){
+			return -1;
+		}
+		elseif($x_array[$i] > $y_array[$i]){
+			return 1;
+		}
+	}
+	return 1;
+});
 
 
 // echo "<pre>";print_r($subnet_list);
@@ -2071,6 +2071,40 @@ funa();
 
 
 
+$listNumber = array(
+	array('name'=> 'Brandon','date' => '11/11/2020'),
+	array('name'=> 'Luis','date' => '01/02/2021'),
+	array('name'=> 'Papa','date' => '08/22/1979'),
+	array('name'=> 'Mama','date' => '02/07/1980'),
+	// '11/11/2020',
+	// '01/02/2021',
+	// '08/22/1979',
+	// '02/07/1980',
+	
+);
+// usort($listNumber, function($x, $y){
+// 	// $x_array = explode('/',$x['date']);
+// 	// $y_array = explode('/',$y['date']);
+
+// 	$x_array = explode('.',$x);
+// 	$y_array = explode('.',$y);
+	
+// 	foreach(range(0, 3) as $i){
+// 		if($x_array[$i] < $y_array[$i])
+// 		{
+// 			return -1;
+// 		}else if($x_array[$i] > $y_array[$i]){
+// 			return 1;
+// 		}
+// 	}
+// 	return 1;
+// });
+
+usort($listNumber, function($a, $b){
+	return date_create($a['date']) <=> date_create($b['date']);
+});
+
+echo "<pre>"; var_dump($listNumber);
 
 
 
