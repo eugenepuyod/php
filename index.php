@@ -6,47 +6,342 @@
 // stripos() - Finds the position of the first occurrence of a string inside another string (case-insensitive)
 // strripos() - Finds the position of the last occurrence of a string inside another string (case-insensitive)
 
-
-// $arraylist = array(
-// 	array('name'=> 'Luis Andrian', 'id'=>4),
-// 	array('name'=> 'Brndon Johnson', 'id'=>6),
-// 	array('name'=> 'Chelsey Alex', 'id'=> 2),
+// Write a function that will get the largest key in array.
+// $ceu = array( "Italy"=>"Rome", "Luxembourg"=>"Luxembourg", "Belgium"=> "Brussels",
+// "Denmark"=>"Copenhagen", "Finland"=>"Helsinki", "France" => "Paris", "Slovakia"=>"Bratislava",
+// "Slovenia"=>"Ljubljana", "Germany" => "Berlin", "Greece" => "Athens", "Ireland"=>"Dublin",
+// "Netherlands"=>"Amsterdam", "Portugal"=>"Lisbon", "Spain"=>"Madrid", "Sweden"=>"Stockholm",
+// "United Kingdom"=>"London", "Cyprus"=>"Nicosia", "Lithuania"=>"Vilnius", "Czech Republic"=>"Prague", 
+// "Estonia"=>"Tallin", "Hungary"=>"Budapest", "Latvia"=>"Riga", "Malta"=> "Valetta","Austria" => "Vienna", 
+// "Poland"=>"Warsaw", "phi" => "Phil"
 // );
 
-// usort($arraylist, function($a, $b){
-// 	return $a['id'] <=> $b['id'];
-// });
 
-// echo "<pre>"; print_r($arraylist);
+// class StringPos{
+// 	public $arrays = array();
+// 	function __construct(array $arr)
+// 	{
+// 		$this->arrays = $arr;
+// 	}
+
+// 	function findinarray($newArray){
+// 		$newArray = preg_split('~[^a-z0-9]~i',$newArray);
+// 		var_dump($newArray);
+// 		echo "<br>";
+// 		return false;
+// 		if(in_array($newArray, $this->arrays)){
+// 			echo "Its true there is ".$newArray." in arrays";
+// 		}else{
+// 			echo "Item not found.";
+// 		}
+// 	}
+// }
+
+
+// $obj = new StringPos(array("foo", "bar", "foe"));
+// echo $obj->findinarray("foe*");
+// echo $obj->findinarray("*foe");
+// echo $obj->findinarray("*foe*");
+
+
+
+
+
+
+// function getLargestKey(array $arrays){
+// 	$keynames = '';
+// 	$completeName = '';
+// 	foreach($arrays as $key => $array){
+// 		if($keynames === ''){
+// 			$keynames = $key;
+// 			$completeName = $key .' - '. $array;
+// 		}else if(strlen($key) >= strlen($keynames)){
+// 			$keynames = $key;
+// 			$completeName = $key .' - '. $array;
+// 		}
+// 	}
+// 	return $completeName;
+// }
+
+// echo '<pre>';
+// var_dump(getLargestKey($ceu));
+
+
+
+
+
+//Write a fuction that will group owner files
+// function groupByOwners(array $files)
+// {
+//     asort($files);
+//     $fileArray = array();
+//     $fileName = "";
+//     $index = 0;
+
+//     foreach($files as $key => $file){
+//       if($file == $fileName){
+//         $index++;
+//         $fileArray[$file][$index] = $key;
+//       }else{
+//         $fileArray[$file] = array($key);
+//       }
+
+//       $fileName = $file;
+//     }
+
+//     return $fileArray;
+// }
+
+// $files = array
+// (
+//     "Input.txt" => "Randy",
+//     "Code.py" => "Stan",
+//     "Output.txt" => "Randy"
+// );
+// var_dump(groupByOwners($files));
+
+// $firstArray = array('Ava', 'Emma', 'Olivia');
+// $secondeArray = array('Olivia', 'Sophia', 'Emma');
+
+
+// function uniqueNames(array $ar1, array $ar2){
+// 	$arraydiff1 = array_diff($ar1,$ar2);
+// 	$arraydiff2 = array_diff($ar2,$ar1);
+
+// 	$arraydiffmerge = array_merge($arraydiff1, $arraydiff2);
+
+// 	$arrayintersect = array_intersect($ar1,$ar2);
+
+// 	$mergenames = array_merge($arrayintersect, $arraydiffmerge);
+
+// 	return $mergenames;
+// }
+
+
+// echo "<pre>";
+// print_r(uniqueNames($firstArray,$secondeArray));
+
+
+
+// Write a function that generates unique names.
+// function unique_names(array $array1, array $array2):?array {
+// 	$array_1 = array_diff($array1,$array2);
+// 	$array_2 = array_diff($array2,$array1);
+
+// 	$arraymerge = array_merge($array_1, $array_2);
+// 	$arrayIntersect = array_intersect($array1,$array2);
+// 	$names = array_merge($arrayIntersect, $arraymerge);
+// 	return $names;
+// }
+
+// $names = unique_names(['Ava', 'Emma', 'Olivia'], ['Olivia', 'Sophia', 'Emma']);
+// echo join(', ', $names); // should print Emma, Olivia, Ava, Sophia
+
+
+// Write a function that overide the first function in class.
+// class FirstClass {
+// 	function add(?string $nuber1, $number2){
+// 		return $nuber1 .' '.$number2;
+// 	}
+// }
+
+// class SecondClass extends FirstClass{
+// 	function add($nuber1, $number2){
+// 		if(is_numeric($nuber1) && is_numeric($number2)){
+// 			return $nuber1 + $number2;
+// 		}
+	
+// 	}
+// }
+
+// $myclass = new SecondClass();
+// echo $myclass->add('aasdfasd',3);
+
+
+
+// Write a function that will floor decimal value.
+// function floorDecimal($number, $precision, $separator){
+// 	$explodeNumber = explode($separator, $number);
+// 	$explodeNumber[1] = substr_replace($explodeNumber[1],$separator,$precision,0);
+// 	if($explodeNumber[0] >= 0){
+// 		$explodeNumber[1] = floor($explodeNumber[1]);
+// 	}else{
+// 		$explodeNumber[1] = ceil($explodeNumber[1]);
+// 	}
+// 	$mergeNumber = array($explodeNumber[0], $explodeNumber[1]);
+
+// 	return implode($separator, $mergeNumber);
+// }
+
+// echo floorDecimal(1.5567, 2, '.');
+
+
+
+// Write a function that will merge array
+// $array1 = array(array(20,40), array(2,4));
+// $array2 = array('google','com');
+
+// function merge_arr($x, $y){
+// 	$temparray = array();
+// 	$temparray[] = $x;
+
+// 	if(is_scalar($y)){
+// 		$temparray[] = $y;
+// 	}else{
+// 		foreach($y as $key => $arr){
+// 			$temparray[] = $arr;
+// 		}
+// 	}
+// 	return $temparray;
+
+// }
+
+
+// echo '<pre>';
+// var_dump(array_map('merge_arr', $array2, $array1));
+
+
+
+
+// Write a function that count number of string;
+// function countStringNumber($strings){
+// 	$pregSplit = preg_split('/(.)(?!\1|$)\K/',$strings);
+// 	$returnString = '';
+// 	foreach($pregSplit as $key => $preg){
+// 		$strlen = strlen($preg);
+// 		$substr = substr($preg,'-1','1');
+// 		$returnString .= $substr. '' .$strlen.' ';
+// 	}
+
+// 	return $returnString;
+// }
+// echo "<pre>";
+// var_dump(countStringNumber('aaabbcdddeefffghiijjj'));
+
+
+// // Write a function that get smallest number closiest to zero.
+// function getSmallest(array $ints){
+
+// 	$zero = 0;
+// 	if(empty($ints)){
+// 		return 0;
+// 	}
+
+// 	foreach($ints as $key => $int){
+// 		if($zero === 0){
+// 			$zero = $int;
+// 		}else if($int > 0 && $int <= abs($zero)){
+// 			$zero = $int;
+// 		}else if($int < 0 && -$int < abs($zero){
+// 			$zero = $int;
+// 		}
+// 	}
+// 	return $zero;
+// }
+
+// echo getSmallest(array(-12,4,6,3,-1,7,10,1));
+
+
+// function closiestToZero(array $ints){
+// 	$smallest = 0;
+// 	if(empty($ints)){
+// 		return 0;
+// 	}
+
+// 	foreach($ints as $key => $int){
+// 		if($smallest === 0)	{
+// 			$smallest = $int;
+// 		}else if($int > 0 && $int <= abs($smallest)){
+// 			$smallest = $int;
+// 		}else if($int < 0 && -$int < abs($smallest)){
+// 			$smallest = $int;
+// 		}
+// 	}
+
+// 	return $smallest;
+// }
+
+
+// echo closiestToZero(array(-12,4,6,3,-1,2,7,10,5));
+
+
+
+
+
+// Write a funtion that get a prime number.
+// function primeNumber(int $int)
+// {
+// 	$count = 0;
+// 	$num = 2;
+
+// 	while($count < 15){
+// 		$divCount = 0;
+// 		for($i = 1; $i < $int; $i++){
+// 			if($num % $i == 0){
+// 				$divCount++;
+// 			}
+// 		}
+
+// 		if($divCount < 3){
+// 			echo $num . ', ';
+// 			$count++;
+// 		}
+
+// 		$num++;
+// 	}
+
+// }
+// primeNumber(50);
+
+
+
 
 
 //Write a PHP function to sort subnets.
-$subnet_list =  array(
-	'192.169.12',
-	'192.167.11',
-	'192.169.14',
-	'192.168.13',
-	'192.167.12',
-	'122.169.15',
-	'192.167.16'
-);
+// $subnet_list =  array(
+// 	'192.169.12',
+// 	'192.167.11',
+// 	'192.169.14',
+// 	'192.168.13',
+// 	'192.167.12',
+// 	'122.169.15',
+// 	'192.167.16'
+// );
+
+// usort($subnet_list, function($x, $y){
+// 	$array_x = explode('.',$x);
+// 	$array_y = explode('.',$y);
+
+// 	foreach(range(0,3) as $i){
+// 		if($array_x[$i] < $array_y[$i]){
+// 			return -1;
+// 		}else if($array_x[$i] > $array_y[$i]){
+// 			return 1;
+// 		}
+		
+// 	}
+// 	return 1;
+// });
+// echo join('<br>',$subnet_list);
 
 
-usort($subnet_list,function($x, $y){
-	$x_array = explode('.', $x);
-	$y_array = explode('.', $y);
 
 
-	foreach(range(0,3) as $i){
-		if($x_array[$i] < $y_array[$i]){
-			return -1;
-		}
-		elseif($x_array[$i] > $y_array[$i]){
-			return 1;
-		}
-	}
-	return 1;
-});
+// usort($subnet_list,function($x, $y){
+// 	$x_array = explode('.', $x);
+// 	$y_array = explode('.', $y);
+
+
+// 	foreach(range(0,3) as $i){
+// 		if($x_array[$i] < $y_array[$i]){
+// 			return -1;
+// 		}
+// 		elseif($x_array[$i] > $y_array[$i]){
+// 			return 1;
+// 		}
+// 	}
+// 	return 1;
+// });
 
 
 // echo "<pre>";print_r($subnet_list);
@@ -207,6 +502,7 @@ usort($subnet_list,function($x, $y){
 
 // $name = new Person();
 // echo $name->getName() . ' ' .$name->getLname();
+
 
 
 
@@ -392,6 +688,9 @@ usort($subnet_list,function($x, $y){
 
 
 
+
+
+
 // $colors = array(
 // 	0 => 'Red',
 // 	1 => 'Green',
@@ -405,6 +704,9 @@ usort($subnet_list,function($x, $y){
 // echo "<pre>";
 // print_r($newcolors);
 // echo "</pre>";
+
+
+// Exam start here
 
 
 // Write a PHP program to remove duplicate values from an array which contains only strings or only integers.
@@ -423,11 +725,13 @@ usort($subnet_list,function($x, $y){
 // 	3 => -10, 
 // 	4 => -10, 
 // 	5 => 0, 
+// 	6 => 0, 
 //   ); 
 //   $uniq_colors = array_keys(array_flip($colors)); 
 //   $uniq_numbers = array_keys(array_flip($numbers)); 
-//   print_r($uniq_colors);
-//   print_r($uniq_numbers);
+//   //echo '<pre>';print_r($uniq_colors);
+//   echo "<pre>";print_r($uniq_numbers);
+
 
 
 
@@ -446,8 +750,10 @@ usort($subnet_list,function($x, $y){
 // 		{$number_part[1]=ceil($number_part[1]);}
 
 // 	$ceil_number= array($number_part[0],$number_part[1]);
+
 // 	return implode($separator,$ceil_number);
 // }
+// print_r(floorDec(1.155, 2, ".")."<br>");
 // print_r(floorDec(1.155, 2, ".")."<br>");
 // print_r(floorDec(-2.9636, 3, ".")."<br>");
 // print_r(floorDec(100.25781, 4, ".")."<br>");
@@ -456,10 +762,10 @@ usort($subnet_list,function($x, $y){
 
 // function min_values_not_zero(Array $values) 
 // {
-// //echo  min(array_diff(array_map('intval', $values), array(0)));
+// echo  min(array_diff(array_map('intval', $values), array(0)));
 // //echo min($values);
 // }
-// $arraynum = array(1, 2, 7, '-400', -300, 200);
+// $arraynum = array(1, 2, 7, '-400', -300, 200, -1);
 // min_values_not_zero($arraynum);
 
 
@@ -619,19 +925,15 @@ usort($subnet_list,function($x, $y){
 // {
 //     return function($arg) use ($funcs)
 //     {
-		
-// 		echo "<pre>";
-// 		print_r($funcs);
-// 		echo "</pre>";
 // 		return -1;
 //     };
+	
 // }
 
 // $fun = make_pipeline( function($x) { return $x * 3; },
 //                       function($x) { return $x + 1; },
 //                       function($x) { return $x / 2; });
 // echo $fun(3); # should print 5
-
 
 
 
@@ -685,6 +987,7 @@ usort($subnet_list,function($x, $y){
 
 
 
+
 // class TextInput
 // {
 // 	public $getNumber;
@@ -722,14 +1025,35 @@ usort($subnet_list,function($x, $y){
 
 // function unique_names(array $array1, array $array2) : array
 // {
-//     $arrayMerge = array_merge($array1, $array2);
-// 	$arrayUnique = array_unique($arrayMerge);
+//     $array_diff1 = array_diff($array1, $array2);
+//     $array_diff2 = array_diff($array2, $array1);
 
-// 	return $arrayUnique;
+// 	$array_merge = array_merge($array_diff1, $array_diff2);
+
+// 	$array_intersect = array_intersect($array1, $array2);
+// 	$names = array_merge($array_intersect, $array_merge);
+
+// 	return $names;
 // }
 
 // $names = unique_names(['Ava', 'Emma', 'Olivia'], ['Olivia', 'Sophia', 'Emma']);
 // echo join(', ', $names); // should print Emma, Olivia, Ava, Sophia
+
+
+
+// $array1 = array('a','b','c');
+// $array2 = array('b','c','d');
+
+// $array_diff1 = array_diff($array1, $array2);
+// $array_diff2 = array_diff($array2, $array1);
+// $array_intersect = array_intersect($array1, $array2);
+// $merge_not_intersect = array_merge($array_diff1, $array_diff2);
+
+
+
+// //echo '<pre>';
+// echo join(' ', (array_merge($array_intersect, $merge_not_intersect)));
+
 
 
 
@@ -792,17 +1116,30 @@ usort($subnet_list,function($x, $y){
 // 							echo "$arrayTemp[$a]-$arrayTemp[$b]-$arrayTemp[$c]-$arrayTemp[$d]-$arrayTemp[$e]-$arrayTemp[$f]<br>";
 // 						}
 // 	$totalAmount = 	$index * 20;
+
+// 	$explodeCombination = explode(',',$inputCombinations);
+	
+
+// 	usort($explodeCombination, function($x,$y){
+// 		return $x <=> $y;
+// 	});
+// 	unset($explodeCombination[0]);
+	
+
 // 	echo "<hr>";
 // 	echo "Combinations: $index<br>";
 // 	echo "Price: 20.00<br>";
-// 	echo "Total Amount: $totalAmount.00<br>";
-// 	echo "Input Numbers: $inputCombinations";
+// 	echo "Total Amount: $totalAmount.00<br><br>";
+// 	echo "Numbers: ". count($explodeCombination) . "<br>";
+// 	echo "Input Numbers: ". join(', ', $explodeCombination);
 // 	}
 // }
 
 
 // $loto = new LotoShupple();
-// $loto->getLoto(array('7','42','27','37','8','22','50'));
+// //$loto->getLoto(array('01','02', 06, '07','08', '12', '22', '27', '28', '29','36', '37','38','42',43, 44,'45', '50', '56'));
+// //$loto->getLoto(array('08','11','22','27','33','42'));
+// // 38-55-26-32-20-09 - latest
 
 
 
@@ -1304,7 +1641,8 @@ usort($subnet_list,function($x, $y){
 // "Denmark"=>"Copenhagen", "Finland"=>"Helsinki", "France" => "Paris", "Slovakia"=>"Bratislava",
 // "Slovenia"=>"Ljubljana", "Germany" => "Berlin", "Greece" => "Athens", "Ireland"=>"Dublin",
 // "Netherlands"=>"Amsterdam", "Portugal"=>"Lisbon", "Spain"=>"Madrid", "Sweden"=>"Stockholm",
-// "United Kingdom"=>"London", "Cyprus"=>"Nicosia", "Lithuania"=>"Vilnius", "Czech Republic"=>"Prague", "Estonia"=>"Tallin", "Hungary"=>"Budapest", "Latvia"=>"Riga", "Malta"=> "Valetta","Austria" => "Vienna", "Poland"=>"Warsaw") ;
+// "United Kingdom"=>"London", "Cyprus"=>"Nicosia", "Lithuania"=>"Vilnius", "Czech Republic"=>"Prague", "Estonia"=>"Tallin", "Hungary"=>"Budapest", 
+// "Latvia"=>"Riga", "Malta"=> "Valetta","Austria" => "Vienna", "Poland"=>"Warsaw") ;
 // $max_key = max( array_keys( $ceu) );
 
 // echo $max_key."\n";
@@ -1580,7 +1918,8 @@ usort($subnet_list,function($x, $y){
 // 	echo $b ." : ". $a ."<br>";
 // }
 
-// $jsonReturn = '{"Title": "The Cuckoos Calling",
+// $jsonReturn = '{
+// 	"Title": "The Cuckoos Calling",
 // 	"Author": "Robert Galbraith",
 // 	"Detail": {
 // 	"Publisher": "Little Brown"
@@ -1588,7 +1927,6 @@ usort($subnet_list,function($x, $y){
 // }';
 
 // $jsondecode = json_decode($jsonReturn, true);
-
 // array_walk_recursive($jsondecode, 'myfunction');
 
 
@@ -1816,7 +2154,7 @@ usort($subnet_list,function($x, $y){
 // 	}
 // 	echo $nzero;
 // }
-//getNearestZero(array(3,2,5,7,5,2,-1,5,6,8,4,2));
+// getNearestZero(array(3,2,5,7,5,2,-1,5,6,8,4,2));
 
 // function getNumberOfIndex($string)
 // {
@@ -1835,17 +2173,19 @@ usort($subnet_list,function($x, $y){
 //getNumberOfIndex('aaaabbacccc');
 
 
-/*
-function funA(){
-	echo "funA";
-}
-function funB(){
-	echo "funA";
-}
-funA();
-funB();
-funa();
-*/
+
+// function funA(){
+// 	echo "funA";
+// }
+// function funB(){
+// 	echo "funA";
+// }
+// funA();
+// funB();
+// funa();
+
+
+
 
 // $a = array(
 //   array(
@@ -1869,7 +2209,7 @@ funa();
 // 	return $a <=> $b;
 // });
 
-// $last_names = array_column($a, 'id');
+// $last_names = array_column($a, 'last_name');
 
 
 
@@ -1877,7 +2217,6 @@ funa();
 // //print_r($a);
 // print_r($last_names);
 
-// echo '</pre>';
 
 // echo "<p>usort()</p>";
 
@@ -2071,44 +2410,59 @@ funa();
 
 
 
-$listNumber = array(
-	array('name'=> 'Brandon','date' => '11/11/2020'),
-	array('name'=> 'Luis','date' => '01/02/2021'),
-	array('name'=> 'Papa','date' => '08/22/1979'),
-	array('name'=> 'Mama','date' => '02/07/1980'),
-	// '11/11/2020',
-	// '01/02/2021',
-	// '08/22/1979',
-	// '02/07/1980',
+// $listNumber = array(
+// 	array('name'=> 'Brandon','date' => '11/11/2020'),
+// 	array('name'=> 'Luis','date' => '01/02/2021'),
+// 	array('name'=> 'Papa','date' => '08/22/1979'),
+// 	array('name'=> 'Mama','date' => '02/07/1980'),
+// 	// '11/11/2020',
+// 	// '01/02/2021',
+// 	// '08/22/1979',
+// 	// '02/07/1980',
 	
-);
-// usort($listNumber, function($x, $y){
-// 	// $x_array = explode('/',$x['date']);
-// 	// $y_array = explode('/',$y['date']);
+// );
+// // usort($listNumber, function($x, $y){
+// // 	// $x_array = explode('/',$x['date']);
+// // 	// $y_array = explode('/',$y['date']);
 
-// 	$x_array = explode('.',$x);
-// 	$y_array = explode('.',$y);
+// // 	$x_array = explode('.',$x);
+// // 	$y_array = explode('.',$y);
 	
-// 	foreach(range(0, 3) as $i){
-// 		if($x_array[$i] < $y_array[$i])
-// 		{
-// 			return -1;
-// 		}else if($x_array[$i] > $y_array[$i]){
-// 			return 1;
-// 		}
-// 	}
-// 	return 1;
+// // 	foreach(range(0, 3) as $i){
+// // 		if($x_array[$i] < $y_array[$i])
+// // 		{
+// // 			return -1;
+// // 		}else if($x_array[$i] > $y_array[$i]){
+// // 			return 1;
+// // 		}
+// // 	}
+// // 	return 1;
+// // });
+
+// usort($listNumber, function($a, $b){
+	
+// 	return date_create($b['date']) <=> date_create($a['date']);
 // });
 
-usort($listNumber, function($a, $b){
-	
-	return date_create($a['date']) <=> date_create($b['date']);
-});
-
-echo "<pre>"; var_dump($listNumber);
+// echo "<pre>"; var_dump($listNumber);
 
 
+// function getNumbofString($arg){
+// 	$pregSplit = preg_split('/(.)(?!\1|$)\K/', $arg);
+// 	$string = '';
 
+// 	foreach($pregSplit as $preg){
+// 		$substr = substr($preg,-1,1);
+// 		$strlen = strlen($preg);
+// 		$string .= $substr."".$strlen. " ";
+// 	}
+
+// 	return $string;
+
+// }
+
+// echo '<pre>'; 
+// echo getNumbofString('aabccccddefgg');
 
 
 ?>
@@ -2117,7 +2471,7 @@ echo "<pre>"; var_dump($listNumber);
 <html>
 <head>
 	<title></title>
-	<script src="https://code.jquery.com/jquery-1.11.3.js"></script>
+	<!--script src="https://code.jquery.com/jquery-1.11.3.js"></!--script-->
 </head>
 <body>
 
@@ -2138,8 +2492,9 @@ echo "<pre>"; var_dump($listNumber);
 
 
 <script type="text/javascript">
+	/*
 jQuery(document).ready(function(){
-/*
+
 function consfuncs()
 {
 var funcs = [];
@@ -2191,42 +2546,42 @@ myFunc();
 
 
 
-*/
+
 
 })
+*/
 
 // -----------   Prototypal Inheritance  --------------
 // Contructor
-function Bear(type)
-{
-	this.type = type;
-}
+// function Bear(type)
+// {
+// 	this.type = type;
+// }
 
-Bear.prototype.growl = function(){
-	console.log('The ' + this.type + ' bear say grrr');
-}
+// Bear.prototype.growl = function(){
+// 	console.log('The ' + this.type + ' bear say grrr');
+// }
 
-function Grizzly(type) {
-	Bear.call(this, type);
-}
-// difference between classical and prototypal bellow
-Grizzly.prototype = Object.create(Bear.prototype);
-//Grizzly.prototype.growl = function(){
-//	console.log("on the grizzly.prototype");
-//}
+// function Grizzly(type) {
+// 	Bear.call(this, type);
+// }
+// // difference between classical and prototypal bellow
+// Grizzly.prototype = Object.create(Bear.prototype);
+// //Grizzly.prototype.growl = function(){
+// //	console.log("on the grizzly.prototype");
+// //}
 
-// Intances
-//var grizzly = new Bear('grizzly');
-var grizzly = new Grizzly('grizzly');
-var polar = new Bear('polar');
+// // Intances
+// //var grizzly = new Bear('grizzly');
+// var grizzly = new Grizzly('grizzly');
+// var polar = new Bear('polar');
 
 
-//console.log(grizzly.growl(), polar.growl());
-//grizzly.growl = function(){ console.log("Overide this");}
-console.log(grizzly.growl());
+// //console.log(grizzly.growl(), polar.growl());
+// //grizzly.growl = function(){ console.log("Overide this");}
+// console.log(grizzly.growl());
 
 // -----------   Prototypal Inheritance  --------------
-
 
 
 
@@ -2348,6 +2703,19 @@ funcs[3]()
 */
 
 
+</script>
+
+<script type="text/javascript">
+	alert('test');
+// function getpro(name){
+//     this.name = name;
+// }
+// getpro.prototype.newcall = function(){
+//     console.log(this.name);
+// }
+
+// const getproto = new getpro('eugene');
+// getproto.newcall();
 </script>
 
 </body>
