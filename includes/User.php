@@ -44,25 +44,25 @@ class User extends Db {
 	}
 	
 	public function insert(array $item, array $value){
-        $con = new mysqli("localhost", "root", "", "crud");
-        $values = [];
-        $items = implode(", ", $item);
-        for($i = 0; $i<count($value); $i++){
-            $values[] .= "'".$value[$i]."'";
-        }
+	        $con = new mysqli("localhost", "root", "", "crud");
+	        $values = [];
+	        $items = implode(", ", $item);
+	        for($i = 0; $i<count($value); $i++){
+	            $values[] .= "'".$value[$i]."'";
+	        }
 		$values = implode(", ",$values);
-        if(count($item) === count($value)){
-            $sql = "INSERT INTO user($items) VALUES($values)";
-            $query = $con->query($sql);
-            if($query){
-                return $con->insert_id;
-            }else{
-                return "No item added to database";
-            }
-        }else{
-            return "Item is not equal to the value";
-        }
+	        if(count($item) === count($value)){
+	            $sql = "INSERT INTO user($items) VALUES($values)";
+	            $query = $con->query($sql);
+	            if($query){
+	                return $con->insert_id;
+	            }else{
+	                return "No item added to database";
+	            }
+	        }else{
+	            return "Item is not equal to the value";
+	        }
         
-    }
+    	}
 
 }
