@@ -4,7 +4,7 @@ $user = new User;
 
 $item = ['name','email','pass'];
 $value = ['Chelsey','chelsey@test.com','test123'];
-$insertId = $user->insertid($item, $value);
+$insertId = $user->insert($item, $value);
 var_dump($insertId);
 
 $setNames = array(
