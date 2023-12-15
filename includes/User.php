@@ -1,5 +1,5 @@
 <?php
-//require "Db/Db.php";
+require "Db/Db.php";
 class User extends Db {
 	public function all(){
 		$sql = "SELECT * FROM user";
@@ -27,19 +27,30 @@ class User extends Db {
 		}
 		return $data;
 	}
+
+	public function update(int $id, array $setValue){
+		$newSetvalue = [];
+		foreach($setValue as $key => $value){
+			$newSetvalue[] .= $key."='$value'";
+		}
+		$newSetvalue = implode(", ",$newSetvalue);
+		$sql = "UPDATE user SET $newSetvalue WHERE id = $id";
+		$query = $this->connect()->query($sql);
+		if($query){
+			return "Item successfull added to database";
+		}else{
+			return "Item not saved";
+		}
+	}
 	
-	public function insertid(array $item, array $value){
+	public function insert(array $item, array $value){
         $con = new mysqli("localhost", "root", "", "crud");
-        $values = "";
+        $values = [];
         $items = implode(", ", $item);
         for($i = 0; $i<count($value); $i++){
-            if($i < count($value)-1){
-                $comma = ", ";
-            }else{
-                $comma = "";
-            }
-            $values .= "'".$value[$i]."'".$comma;
+            $values[] .= "'".$value[$i]."'";
         }
+		$values = implode(", ",$values);
         if(count($item) === count($value)){
             $sql = "INSERT INTO user($items) VALUES($values)";
             $query = $con->query($sql);
