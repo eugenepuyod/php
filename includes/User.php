@@ -1,5 +1,5 @@
 <?php
-require "Db/Db.php";
+//require "Db/Db.php";
 class User extends Db {
 	public function all(){
 		$sql = "SELECT * FROM user";
